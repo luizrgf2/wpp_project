@@ -21,6 +21,12 @@ Certifique-se de ter instalado os seguintes requisitos:
 - MySQL
 - Node.js
 
+### Rodando o projeto rapidamente
+**docker e docker compose necessário aqui**
+```bash
+chmod +x install.sh && chmod ./install.sh
+```
+
 ### Instalação
 
 1. **Criando e entrando na pasta:**
