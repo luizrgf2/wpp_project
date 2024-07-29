@@ -1,41 +1,30 @@
 # Whats Project
 
-## Sobre
-O projeto Whats Project tem a finalidade de ser um sistema simples para envio de mensagens via WhatsApp. É um projeto simples, cujo principal objetivo foi o desafio e a aprendizagem.
+# Whats Project
 
-## Funcionalidades
-- Autenticação com qr code na tela principal.
-- Envio de mensagens em massa usando uma lista de contatos.
+O projeto **Whats Project** é um sistema simples para envio de mensagens via WhatsApp. Ele foi criado com o objetivo de desafio e aprendizado. Algumas das funcionalidades incluem autenticação com QR code na tela principal e envio de mensagens em massa usando uma lista de contatos.
 
 ## Observações
-- Projeto não planejado para a escalabilidade.
-- Não foi ultilizado nenhum tipo de arquitetura ou design de software, é um projeto apenas para fins de aprendizagem.
 
-## Guia de instalação
+- O projeto não foi planejado para escalabilidade.
+- Não foi utilizado nenhum tipo de arquitetura ou design de software sofisticado; trata-se apenas de um projeto para fins de aprendizado.
 
-### requisitos
-- docker **(opcional)**
-- rabbitMQ
-- redis
-- mysql
-- nodejs
+## Guia de Instalação
 
-### rodando o projeto rapidamente
+### Requisitos
 
-**docker e docker composse são necessarios aqui**
+Certifique-se de ter instalado os seguintes requisitos:
 
-```bash
-chmod +x install.sh && install.sh
-```
-Agora é so colocar a url do frontend e testar http://localhost:3000
+- Docker (opcional)
+- RabbitMQ
+- Redis
+- MySQL
+- Node.js
 
-### repositorios
-- repositorio backend - https://github.com/luizrgf2/backend-wpp-project
-- repositorio frontend - https://github.com/luizrgf2/frontend-wpp-project
-- repositorio micro serviço de envio - https://github.com/luizrgf2/wpp_sender_ms
+### Instalação
 
-### instalação
-- Criando e entrando na pasta.
+1. **Criando e entrando na pasta:**
+
 ```bash
 mkdir whats-project && cd whats-project
 ```
@@ -53,12 +42,12 @@ git clone https://github.com/luizrgf2/wpp_sender_ms.git
 ```
 
 
-Todos os repositorios tem um arquivo chamado **env.local** com variáveis de ambiente preconfiguradas.
+Todos os repositórios têm um arquivo chamado env.local com variáveis de ambiente preconfiguradas.
 
 
 ### rodando o projeto normalmente
 
-- dentro desse  repositorio, você vai encontrar um **docker compose.yml**, todos os outros repositorios devem estar na mesma pasta que esse e com os mesmo nomes de pastas.
+- Dentro desse repositório, você vai encontrar um docker-compose.yml. Todos os outros repositórios devem estar na mesma pasta que este e com os mesmos nomes de pastas.
 
 ```bash
 docker compose up
