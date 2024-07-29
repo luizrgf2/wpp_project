@@ -1,0 +1,77 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"   
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: admin     
+      RABBITMQ_DEFAULT_PASS: admin
+    networks:
+      - wpp_net
+
+  redis:
+    image: redis:6-alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - wpp_net
+  
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: whats
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    ports:
+      - "3306:3306"
+    networks:
+      - wpp_net
+
+  wpp_sender_ms:
+    build: 
+      context: ../wpp_sender_ms
+      dockerfile: dockerfile
+    env_file:
+      - ../wpp_sender_ms/.env.local
+    depends_on:
+      - mysql
+      - redis
+      - rabbitmq
+    networks:
+      - wpp_net
+  
+  backend-wpp-project:
+    ports:
+      - "8080:3000"
+    build: 
+      context: ../backend-wpp-project
+      dockerfile: dockerfile
+    env_file:
+      - ../backend-wpp-project/.env.local
+    depends_on:
+      - mysql
+      - redis
+      - rabbitmq
+    networks:
+      - wpp_net
+
+  frontend-wpp-project:
+    ports:
+      - "3000:5000"
+    build: 
+      context: ../frontend-wpp-project
+      dockerfile: dockerfile
+    env_file:
+      - ../frontend-wpp-project/.env.local
+    depends_on:
+      - mysql
+      - redis
+      - rabbitmq
+      - backend-wpp-project
+    networks:
+      - wpp_net
+networks:
+  wpp_net:
+    driver: bridge
