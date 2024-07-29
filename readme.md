@@ -27,6 +27,8 @@ Certifique-se de ter instalado os seguintes requisitos:
 chmod +x install.sh && chmod ./install.sh
 ```
 
+Agora é so colocar a url do frontend no navegador e testar http://localhost:3000
+
 ### Instalação
 
 1. **Criando e entrando na pasta:**
@@ -63,4 +65,4 @@ docker compose up
 
 ### testando
 
-Agora é so colocar a url do frontend e testar http://localhost:3000
+Agora é so colocar a url do frontend no navegador e testar http://localhost:3000
